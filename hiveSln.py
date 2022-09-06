@@ -72,10 +72,6 @@ def maxFirst(g):
     return g
 
 
-def toString(set):
-    return ','.join(str(x) for x in set)
-
-
 res = np.array('')
 cnt = 0
 for keys in itertools.permutations(range(1, 20), 6):
