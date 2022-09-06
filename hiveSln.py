@@ -15,9 +15,11 @@ def validate(rr, kr):
     fcR = fiveCheck(38-kr[0]-kr[3], 38-kr[1]-kr[4], 38-kr[2]-kr[5], rr)
     if fcR == False or fcR[0] == False:
         return False
-    if fourCheck(38-gap[0]-gap[2], 38-gap[1]-gap[3], 38-gap[2]-gap[4], 38-gap[3]-gap[5], 38-gap[4]-gap[0], 38-gap[5]-gap[1], fcR[1][1::]) == False:
-        return False
-    return True, gap, fcR[1]
+    fc = fourCheck(38-gap[0]-gap[2], 38-gap[1]-gap[3], 38-gap[2]-gap[4],
+                   38-gap[3]-gap[5], 38-gap[4]-gap[0], 38-gap[5]-gap[1], fcR[1][1::])
+    if fc != False:
+        return True, gap, fcR[1][0], fc[1]
+    return False
 
 
 def tfl(tuple, rr):
@@ -38,7 +40,7 @@ def fourCheck(g0, g1, g2, g3, g4, g5, rr):
                     ok1 = tuple(filter(lambda item: item != k1, key1))[0]
                     ok2 = tuple(filter(lambda item: item != k2, key2))[0]
                     if ok + k2 == g1 and ok1+ok == g2 and ok1+ok2 == g3 and ok2+k == g4:
-                        return True
+                        return True, (k, ok, k1, ok1, k2, ok2)
     return False
 
 
@@ -90,4 +92,4 @@ for keys in itertools.permutations(range(1, 20), 6):
         if np.any(res == tmp) == False:
             res = np.append(res, tmp)
             print("~~~~~~~Got an answer!~~~~~~~")
-            hg.draw(keys, vde[1], vde[2])
+            hg.draw(keys, vde)
