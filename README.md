@@ -1,5 +1,6 @@
 # HiveSln
 This puzzle is funny, lets play it by using python ...
+![alt text](https://github.com/skltfz/HiveSln/blob/main/hive-sumallto38.png?raw=true)
  
 First of all, what is Hive puzzle. In fact, i have no idea what name it is. I bought it very long time ago when I am young in a trip. Obviously it is not easy to solve
 
