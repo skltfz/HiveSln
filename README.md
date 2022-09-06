@@ -16,3 +16,5 @@ By thinking carefully, that 6 angle's blocks should be the very good start point
 Fortunately python is quite fast (or at least my laptop is quite fast)
 
 So the rationale is: getting that 6 angles (actually, by doing carefully there are 30504 combinations, by filter out the duplication it became 5084 combinations, and then adding the inner 7 blocks rules, eventually the program can find the answer (in premise that you need to write the condition right, the inner rules are pretty tedious I have to say, but I don't know how to simplify it, since it is really hardcore additions only lol)
+
+Finally, the most funniest part is there are actually 2 possible solutions (should I say only? in fact I thought there is only 1 until my program told me not...) :) Enjoy the truth to be revealed
