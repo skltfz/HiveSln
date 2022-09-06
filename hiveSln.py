@@ -36,11 +36,11 @@ def fourCheck(g0, g1, g2, g3, g4, g5, rr):
         for k1 in key1:
             for k2 in key2:
                 if k+k1 == g5 and k1+k2 == g0:
-                    ok = tuple(filter(lambda item: item != k, key))[0]
-                    ok1 = tuple(filter(lambda item: item != k1, key1))[0]
-                    ok2 = tuple(filter(lambda item: item != k2, key2))[0]
-                    if ok + k2 == g1 and ok1+ok == g2 and ok1+ok2 == g3 and ok2+k == g4:
-                        return True, (k, ok, k1, ok1, k2, ok2)
+                    sk = tuple(filter(lambda item: item != k, key))[0]
+                    sk1 = tuple(filter(lambda item: item != k1, key1))[0]
+                    sk2 = tuple(filter(lambda item: item != k2, key2))[0]
+                    if sk + k2 == g1 and sk1+sk == g2 and sk1+sk2 == g3 and sk2+k == g4:
+                        return True, (k, sk, k1, sk1, k2, sk2)
     return False
 
 

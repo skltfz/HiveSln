@@ -1,4 +1,4 @@
-# HiveSln
+# HiveSln - by SKLTFZ
 
 This puzzle is funny, lets play it by using python ...
 ![alt text](https://github.com/skltfz/HiveSln/blob/main/hive-sumallto38.png?raw=true)
