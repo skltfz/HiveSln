@@ -1,24 +1,19 @@
 # HiveSln
 This puzzle is funny, lets play it by using python ...
 ![alt text](https://github.com/skltfz/HiveSln/blob/main/hive-sumallto38.png?raw=true)
- 
-First of all, what is Hive puzzle. In fact, i have no idea what name it is. I bought it very long time ago when I am young in a trip. Obviously it is not easy to solve
-
-Until currently I figured out this puzzle is able to solved by outer 12 blocks first, and in fact, given the 6 angles are found. Whatever it is found by any reason (genius? luck? not sure), human brain can solved the rest of the blocks pretty easily. They are just additions.
-
 The rules of this puzzle is simple, sum of any diagonal & adjacent lines blocks are equals to 38. And there are 19 blocks.
+ 
+First of all, what is Hive puzzle. In fact, i have no idea what name it is. My parent bought it very long time ago in a oversea trip. Obviously it is not easy to solve for a 1x yrs old guy. I googled in and it named 數字蜂窩 in chinese (while it is 100% sure mine is not bought at China lol)
 
-This solution is about using a relative smart way to select the desire blocks and validate if they can be the final answer eventually.
+Recently, I figured out this puzzle is able to solved by outer 12 blocks first, and in fact, given the 6 edge's angles are found. Whatever it is found by any reason (intuition? genius? luck? not sure), human brain can solved the rest of the blocks pretty easily by doing additions.
+
+The problem is that you cannot validate it without getting to the piece of blocks right... Then I am started to curious how many actual combinations there are
 
 The reason is if you brute force 19 blocks there will be 19 permutations in 19 chooses, so you need to do 19! = 1.216451e+17 iterations. You never want to iterate that many times (I dont think you can :D...) 
 
-By thinking carefully, that 6 angle's blocks should be the very good start points, in fact is there is also 19!/13! = 19535040 combinations.
+What is the solution? It is implemented to find the first 6 edge angles first (there is also 19!/13! = 19535040 combinations) then validate them with 5 blocks diagonal to find the central block, and finally validate the last 6 rules of 4 blocks.
 
-Luckily, python is quite fast (plus my laptop is quite fast too)
-
-So the rationale is: getting that 6 angles (actually, by doing carefully there are 30504 combinations, by filter out the duplication it became 5084 combinations, and then adding the inner 7 blocks rules, eventually the program can find the answer (on premise that you need to implement the correct validation, the inner validations rules are pretty tedious I have to say and I don't know how to simplify it, since it is really hardcore additions only lol)
-
-Finally, the most funniest part is there are actually 2 possible solutions (should I say only? in fact I thought there is only 1 until my program told me not...) :) Enjoy the truth to be revealed
+Finally, the most funniest part is there are actually 2 possible solutions (should I say only? in fact I thought there is only 1 until the program told me not...) :) Enjoy the truth to be revealed
 
 To run the program:
 
