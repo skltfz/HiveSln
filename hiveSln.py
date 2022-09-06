@@ -1,6 +1,6 @@
 import numpy as np
 import itertools
-import random as rand
+import hiveGraph as hg
 
 
 def validate(rr, kr):
@@ -17,7 +17,13 @@ def validate(rr, kr):
         return False
     if fourCheck(38-gap[0]-gap[2], 38-gap[1]-gap[3], 38-gap[2]-gap[4], 38-gap[3]-gap[5], 38-gap[4]-gap[0], 38-gap[5]-gap[1], fcR[1][1::]) == False:
         return False
-    return True
+    return True, gap, fcR[1]
+
+
+def tfl(tuple, rr):
+    for t in tuple:
+        rr = rr[rr != t]
+    return rr
 
 
 def fourCheck(g0, g1, g2, g3, g4, g5, rr):
@@ -34,12 +40,6 @@ def fourCheck(g0, g1, g2, g3, g4, g5, rr):
                     if ok + k2 == g1 and ok1+ok == g2 and ok1+ok2 == g3 and ok2+k == g4:
                         return True
     return False
-
-
-def tfl(tuple, rr):
-    for t in tuple:
-        rr = rr[rr != t]
-    return rr
 
 
 def fiveCheck(ttl, ttl2, ttl3, rr):
@@ -70,17 +70,24 @@ def maxFirst(g):
     return g
 
 
+def toString(set):
+    return ','.join(str(x) for x in set)
+
+
 res = np.array('')
 cnt = 0
-with open('result.txt', 'w') as f:
-    for keys in itertools.permutations(range(1, 20), 6):
-        rr = np.array(range(1, 20))
-        kr = np.array(keys)
-        for k in kr:
-            rr = rr[rr != k]
-        if validate(rr, kr) == True:
-            tmp = ','.join(str(x) for x in maxFirst(list(keys)))
-            if np.any(res == tmp) == False:
-                res = np.append(res, tmp)
-                f.writelines(tmp + '\n')
-                print("Got an answer!" + res)
+for keys in itertools.permutations(range(1, 20), 6):
+    rr = np.array(range(1, 20))
+    kr = np.array(keys)
+    cnt += 1
+    if cnt % 80000 == 0:
+        print("Working on ", cnt, " samples")
+    for k in kr:
+        rr = rr[rr != k]
+    vde = validate(rr, kr)
+    if vde != False:
+        tmp = str(maxFirst(list(keys)))
+        if np.any(res == tmp) == False:
+            res = np.append(res, tmp)
+            print("~~~~~~~Got an answer!~~~~~~~")
+            hg.draw(keys, vde[1], vde[2])
