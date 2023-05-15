@@ -20,7 +20,7 @@ What is the solution? It is implemented to find the first 6 edge angles first be
 
 However there is still 5084 combinations. Next we getting the center node by validating the 3 diagonal lines nodes (fiveCheck), finally getting the rest of inner nodes by fourCheck
 
-Finally, the interesting part is: there are actually 2 possible solutions (should I say only? in fact I thought there is only 1 until the program told me not...) :) Enjoy the truth to be revealed
+Finally, the interesting part is: there are actually 2 possible solutions (should I say only? in fact I thought there is only 1 until the program told me the truth... LOL) :) Enjoy the truth to be revealed
 
 To run the program:
 
